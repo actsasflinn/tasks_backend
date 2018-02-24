@@ -75,6 +75,9 @@ class TasksController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       Rails.logger.debug(params)
-      params.require(:task).permit(:slug, :name, :description, :picture)
+      params.require(:task).permit(:slug, :name, :description, :picture,
+        :latitude, :longitude, :altitude, :horizontal_accuracy, :vertical_accuracy,
+        :speed, :direction, :timestamp
+      )
     end
 end
