@@ -45,7 +45,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update(task_params)
         @task.picture.purge
-        @task.picture.attach(params[:task][:picture])
+        @task.picture.attach(params[:task][:picture]) if params[:task][:picture]
 
         format.html { redirect_to @task, notice: 'Task was successfully updated.' }
         format.json { render :show, status: :ok, location: @task }
