@@ -19,7 +19,7 @@
         <td><%= task.slug %></td>
         <td><%= task.name %></td>
         <td><%= task.description %></td>
-        <td><%= image_tag(task.picture.attachment) unless task.picture.attachment.blank? %></td>
+        <td><%= link_to(full_url_for(task.picture), task.picture) if task.picture.attached? %></td>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
