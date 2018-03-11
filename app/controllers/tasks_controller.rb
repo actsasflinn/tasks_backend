@@ -25,7 +25,7 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-#    @task.picture.purge
+    @task.picture.purge if params[:task][:picture].blank?
 #    @task.picture.attach(params[:task][:picture]) if params.require(:task).permit(:picture)
 
     respond_to do |format|
